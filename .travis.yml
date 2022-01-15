@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t nur1kilcadir/react-test -f Dockerfile.dev ./client
+  - docker build -t nur1kilcadir/react-test -f ./client/Dockerfile.dev ./client
 script:
     - docker run -e CI=true nur1kilcadir/react-test npm test
 
@@ -19,4 +19,3 @@ after_success:
    - docker push nur1kilcadir/multi-nginx
    - docker push nur1kilcadir/multi-server
    - docker push nur1kilcadir/multi-worker
-   
